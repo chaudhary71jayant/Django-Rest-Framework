@@ -195,8 +195,13 @@ urlpatterns = [
         http://127.0.0.1:8000/members/?ordering=-joined_at
 
                 
+## Pagination 
 
+    Pagination breaks your api response into smaller chunks so it doesn't return thousands of records at once. It's especially important for performance and forntend apps that load lists (like tables or infinite scrolls).
 
+    => We can add pagination to settings.py in the rest framework dictionary like :
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+        'PAGE_SIZE': 2,  # Number of members per page (you can change this)=> Like for page size two there will be only two enteries per page 
 
 
 
