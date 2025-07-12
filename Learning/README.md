@@ -115,7 +115,7 @@ urlpatterns = [
 
 ## Phase 2 :
 
-Authentication and Permissions in DRF
+ ### Authentication and Permissions in DRF
 
     - We know Authentication is required to stop any unauthorised person to change the data in the API
     - With Authentication only authorised users can acess or modify the API
@@ -140,6 +140,40 @@ Authentication and Permissions in DRF
             user = User.objects.get(username='admin')  # use your created username
             token = Token.objects.create(user=user)
             print(token.key)
+
+ ### Permissions
+
+        Permissions are used to grant or deny acess to views based on request's authentication and user.
+        
+        permission_class = [PermissionName]
+
+        Built in permissions in Django : 
+
+            - AllowAny : Allows unrestricted access (good for public API's)
+            - IsAuthenticated : Only allows logged-in users(with valid token or session) to access the API.
+            - IsAdminUser : only allows admin users(is_staff=True) to access.
+            - IsAuthenticatedReadOnly : Unauthenticated users only GET is allowed. full access to authenticated users.
+
+        
+        => Set Global or view level Permission :
+
+            - Global (in Settings.py):
+
+                
+                    REST_FRAMEWORK = {
+                        'DEFAULT_PERMISSION_CLASSES'    : [
+                            'rest_framework.permissions.IsAuthenticated',
+                        ]
+                    }
+
+            - View-Level(in views.py):
+
+                from rest_framework.permission import IsAuthenticated
+
+                class MyView(APIView):
+
+                
+
 
 
 
