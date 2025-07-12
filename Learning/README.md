@@ -172,6 +172,28 @@ urlpatterns = [
 
                 class MyView(APIView):
 
+## Filetering & Searching
+
+
+    =>Filetering and serching makes your API usable in real world apps(search by name/email)
+    
+    Firstly install django-filter with pip and add it to the settings.py installed apps
+
+    then add :
+        'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ] this in the rest_framework
+
+    Then update the viewSet by first import the filters and then add the filters like mentioned in the views.py
+
+    after adding them to rest framework dictionary and modifying viewSet for the search filter and ordering 
+    Runserver and check with urls : 
+        -   http://127.0.0.1:8000/members/?search=Jayant
+        http://127.0.0.1:8000/members/?email=someone@example.com
+        http://127.0.0.1:8000/members/?ordering=-joined_at
+
                 
 
 
