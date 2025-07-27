@@ -1,0 +1,17 @@
+# pythone/Django
+venv/
+__pychache__/
+*.pyc
+*.sqlite3
+
+# Node/React
+node_modules/
+dist/
+
+#Environment and sensitive files 
+.env 
+
+# OS/IDE - specific
+.DS_store
+*.log
+.vscode/
