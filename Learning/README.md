@@ -205,3 +205,29 @@ urlpatterns = [
 
 
 
+## JWT Authentication
+
+### Phase 1 : Setup JWT Authentication 
+        1. Install the library
+            
+            =>Install JWT with "pip install djangorestframework-simplejwt"
+
+
+        2. Configure DRF to JWT
+
+            => In settings.py in the rest framework dictionary add the following : 
+                 'DEFAULT_AUTHENTICATION_CLASSES': (
+                    'rest_framework_simplejwt.authentication.JWTAuthentication',
+                ),
+                'DEFAULT_PERMISSION_CLASSES': (
+                    'rest_framework.permissions.IsAuthenticated',
+                )
+
+            => Add JWT URLs to the urls.py in the project
+
+            
+        3. Create /api/token/ and /api/token/referesh/ end points
+        4. Test authentication via postman or browseer.
+### Phase 2 : Protect your APIs with JWT
+        5. Secure any API with JWT
+        6. Test authorized bs unautherized requests
