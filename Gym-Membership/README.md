@@ -17,5 +17,8 @@ A fullstack web application to manage gym members and their workout plans using 
 - Installed dependencies: `axios`, `react-router-dom`
 
 ### Folder Structure
-    - |-gym-backend/
+    - |-gym_backend/
     - |-gym-frontend/
+    - |-myvenv //virtual environment
+
+
