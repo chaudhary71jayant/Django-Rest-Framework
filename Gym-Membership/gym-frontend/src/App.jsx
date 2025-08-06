@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import API from './api';
+import './App.css';
 
 function App() {
   const [members, setMembers] = useState([]);
@@ -42,7 +43,7 @@ function App() {
   }
 
   return(
-    <div>
+    <div className='main'>
       <h1>Gym members</h1>
       {members.length === 0 ? (
         <p>No members found.</p>
@@ -58,29 +59,36 @@ function App() {
 
       {/* Add a Member Form */}
       <h2>Add Members</h2>
+
+      <div className="formInputs">
       <form onSubmit={addMember}>
-        <input type="text"
-              placeholder='Name'
+        Name : <input type="text"
               value={name}
               onChange={ (e) => setName(e.target.value)}
               required
         />
+        <br /><br />
+        
+        Age : <input type="number" value= {age} onChange={(e) => setAge(e.target.value)} required/>
+        <br /><br />
 
-        <input type="number" placeholder='Age' value= {age} onChange={(e) => setAge(e.target.value)} required/>
-
-        <select value={gender} onChange={(e) => setGender(e.target.value)}>
+        Gender : <select value={gender} onChange={(e) => setGender(e.target.value)}>
           <option>Male</option>
           <option>Female</option>
         </select>
+        <br /><br />
 
-        <select value={membershipType} onChange={(e) => setMembershipType(e.target.value)}>
+        Membership Type : <select value={membershipType} onChange={(e) => setMembershipType(e.target.value)}>
           <option value="basic">Basic</option>
           <option value="premium">Premium</option>
           <option value="vip">VIP</option>
         </select>
+        <br /><br /><br />
 
-        <button type='submit'>Add Members</button>
+        <button type='submit' className='button'>Add Members</button>
       </form>
+
+      </div>
     </div>
   );
 }
